@@ -1,0 +1,253 @@
+header {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 40px 20px 20px;
+  text-align: center;
+  position: relative;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+}
+
+header h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffd700 0%, #fff 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: 12px;
+  color: #ffd700;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.ticker {
+  background: rgba(255, 215, 0, 0.03);
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.ticker-content {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  color: #ffd700;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ticker-item span {
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.ticker-separator {
+  color: rgba(255, 215, 0, 0.3);
+}
+
+.days-counter {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.days-counter::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.days-counter .label {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.days-counter .number {
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 900;
+  background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  text-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+}
+
+.days-counter .subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 10px;
+  letter-spacing: 4px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  padding: 25px 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffd700;
+  margin-bottom: 5px;
+}
+
+.stat-card p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.table-section {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.table-section h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.trophy-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.trophy-table th,
+.trophy-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.trophy-table th {
+  background: rgba(255, 215, 0, 0.1);
+  color: #ffd700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.trophy-table td {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trophy-table tr:last-child td {
+  border-bottom: none;
+}
+
+.trophy-table tr:hover td {
+  background: rgba(255, 215, 0, 0.05);
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
+  margin-top: 20px;
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
